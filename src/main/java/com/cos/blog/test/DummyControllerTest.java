@@ -29,7 +29,7 @@ public class DummyControllerTest {
     @GetMapping("/dummy/user/page/{page}")
 //    스프링 부트의 자동 페이징기능
 //    2건씩 들고오고, id기준 최신순 정렬
-    public Page<User> pageList(@PageableDefault(size = 2, sort = "id",direction = Sort.Direction.DESC)Pageable pageable){
+    public Page<User> pageList(@PageableDefault(size = 2, sort = "id",direction = Sort.Direction.DESC)Pageable pageable) {
         Page<User> users = userRepository.findAll(pageable);
         return users;
     }
