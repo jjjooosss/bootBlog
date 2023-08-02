@@ -12,7 +12,8 @@ import java.util.Collection;
 // 스프링 시큐리티의 고유한 세션저장소에 저장을 해준다.
 @Data
 public class PrincipalDetail implements UserDetails{
-	private User user; // 콤포지션
+	private User user; // 콤포지션: 객체를 품고있는것, extend해서 들고오는건 상속
+
 
 	public PrincipalDetail(User user) {
 		this.user = user;
@@ -52,11 +53,13 @@ public class PrincipalDetail implements UserDetails{
 		return true;
 	}
 	
-	// 계정이 갖고있는 권한 목록을 리턴한다. (권한이 여러개 있을 수 있어서 루프를 돌아야 하는데 우리는 한개만)
+	// 계정이 갖고있는 권한 목록을 리턴한다. (권한이 여러개 있을 수 있어서 포문 돌아야 하는데 이 프로젝트는 권한 한개)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
 		Collection<GrantedAuthority> collectors = new ArrayList<>();
+//		어차피 add함수 안에 들어올 수 있는 파라미터는 GrantedAuthority 밖에 없으므로 생략하고
+//		GrantedAuthority의 함수도 getAuthorities() 한 개 뿐이므로 람다식(함수안의 함수 표현하려면)으로 바로 표현 가능
 		collectors.add(()->{ return "ROLE_"+user.getRole();});
 		
 		return collectors;
