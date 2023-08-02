@@ -3,7 +3,8 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-	<form action="#" method="post">
+<%--	컨트롤러가 아니라 시큐리티가 이 요청 가로챔--%>
+	<form action="/auth/loginProc" method="post">
 		<div class="form-group">
 			<label for="username">Username</label> 
 			<input type="text" name="username" class="form-control" placeholder="Enter username" id="username">

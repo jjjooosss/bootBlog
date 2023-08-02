@@ -28,7 +28,6 @@ public class Board {
     @Lob //대용량 데이터
     private String content; //섬머노트 라이브러리 사용하면 <html> 태그가 섞여서 디자인이 됨. => 데이터 크기 매우 큼
 
-    @ColumnDefault("0")// user테이블의 디폴트 user 는 스트링이라 안에 작은따옴표 넣었지만 얘는 int라서 필요없
     private int count;//조회수
 
 
